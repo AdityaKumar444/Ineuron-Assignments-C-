@@ -1,0 +1,14 @@
+int highest(int n)
+{
+    int highest = -1 , a ;
+    while(n)
+    {
+        if(n<0)
+        n = n*-1;
+        a = n % 10 ;
+        if(a > highest)
+        highest = a ;
+        n = n / 10 ;
+    }
+    return highest ;
+}
