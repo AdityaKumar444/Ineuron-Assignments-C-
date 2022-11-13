@@ -1,0 +1,16 @@
+class Time
+{
+    private:
+        int hour , minute , second ;
+    public:
+        void setTime(int x , int y , int z)
+        {
+            hour = x ;
+            minute = y ;
+            second = z ;
+        }
+        void displayTime()
+        {
+            cout << hour <<" hr " << minute << " min " << second << " sec" << endl;
+        }
+};
