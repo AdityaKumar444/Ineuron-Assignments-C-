@@ -4,7 +4,7 @@ class Complex
         int real ;
         int imag ;
     public:
-        void input(int a , int b)
+        void set(int a , int b)
         {
             real = a ;
             imag = b ;
