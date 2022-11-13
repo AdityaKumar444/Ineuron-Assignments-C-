@@ -1,0 +1,16 @@
+class Complex
+{
+    private:
+        int real ;
+        int imag ;
+    public:
+        void input(int a , int b)
+        {
+            real = a ;
+            imag = b ;
+        }
+        void display()
+        {
+            cout << real << " + " << imag << "i" ;
+        }
+};
