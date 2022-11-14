@@ -1,0 +1,37 @@
+class LargestNumber
+{
+    private:
+        int a , b , c , Largest ;
+    public:
+        void set(int x , int y , int z)
+        {
+            a = x ;
+            b = y ;
+            c = z ; 
+        }
+        void calculate_largest()
+        {
+            if(a>b && a>c)
+            Largest = a ;
+            else if(b>a && b>c)
+            Largest = b ;
+            else if(c>a && c>b)
+            Largest = c ;
+        }
+        int get_a()
+        {
+            return a ;
+        }
+        int get_b()
+        {
+            return b ;
+        }
+        int get_c()
+        {
+            return c ;
+        }
+        int get_largest()
+        {
+            return Largest ;
+        }
+};
