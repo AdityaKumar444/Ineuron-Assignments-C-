@@ -1,0 +1,30 @@
+class Rectangle
+{
+    private:
+        float len , wid , area ;
+    public:
+        void set_parameters(float x , float y)
+        {
+            len = x ;
+            wid = y ;
+        }
+        float get_len()
+        {
+            return len ;
+        }
+        float get_wid()
+        {
+            return wid ;
+        }
+        void calculate_area()
+        {
+            if(len<0 || wid<0)
+            area = 0 ; 
+            else
+            area = len * wid ;
+        }
+        float get_area()
+        {
+            return area ;
+        }
+};
