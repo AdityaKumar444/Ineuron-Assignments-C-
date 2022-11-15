@@ -1,0 +1,25 @@
+class Circle
+{
+    private:
+        float radius , area ;
+    public:
+        void set_parameters(float x)
+        {
+            radius = x ;
+        }
+        float get_radius()
+        {
+            return radius ;
+        }
+        void calculate_area()
+        {
+            if(radius<0)
+            area = 0 ; 
+            else
+            area = 3.14 * radius * radius ;
+        }
+        float get_area()
+        {
+            return area ;
+        }
+};
