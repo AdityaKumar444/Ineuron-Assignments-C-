@@ -1,0 +1,28 @@
+class ReverseNumber
+{
+    private:
+        int n , reverse = 0 ;
+    public:
+        void setN(int x)
+        {
+            n = x ;
+        }
+        int getN()
+        {
+            return n ;
+        }
+        void calculate_reverse()
+        {
+            int re , b = n ;
+            while (b!=0)
+            {
+                re = b % 10 ;
+                reverse = ( reverse * 10 ) + re ;
+                b = b / 10 ;
+            }
+        }
+        int get_reverse()
+        {
+            return reverse ;
+        }
+};
