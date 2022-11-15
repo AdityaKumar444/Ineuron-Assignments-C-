@@ -1,0 +1,37 @@
+class Greatest
+{
+    private:
+        int n1 , n2 , n3 , greatest ;
+    public:
+        void setN(int x , int y , int z)
+        {
+            n1 = x ;
+            n2 = y ;
+            n3 = z ;
+        }
+        int getN1()
+        {
+            return n1 ;
+        }
+        int getN2()
+        {
+            return n2 ;
+        }
+        int getN3()
+        {
+            return n3 ;
+        }
+        void calculate_largest()
+        {
+            if(n1>n2 && n1>n3)
+            greatest = n1 ;
+            else if(n2>n1 && n2>n3)
+            greatest = n2 ;
+            else if(n3>n1 && n3>n2)
+            greatest = n3 ;
+        }
+        int get_Greatest()
+        {
+            return greatest ;
+        }
+};
