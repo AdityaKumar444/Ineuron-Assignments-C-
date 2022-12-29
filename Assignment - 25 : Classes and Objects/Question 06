@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std ;
+class Square
+{
+    private:
+        int num , square ;
+    public:
+        static int count ;
+        void set_num(int x)
+        {
+            num = x ;
+        }
+        int get_num()
+        {
+            return num ;
+        }
+        void calculate_Square()
+        {
+            square = num * num ;
+            count++;
+        }
+        int get_square()
+        {
+            return square ;
+        }
+};
+int Square::count=0;
+int main () 
+{
+    Square a , b ;
+    a.set_num(5);
+    a.calculate_Square();
+    cout << "The square of " << a.get_num() << " is " << a.get_square() << endl ;
+    b.set_num(7);
+    b.calculate_Square();
+    cout << "The square of " << b.get_num() << " is " << b.get_square() << endl ;
+    cout << "the function is called " << Square::count << " times" ;    
+    return 0 ; 
+}
