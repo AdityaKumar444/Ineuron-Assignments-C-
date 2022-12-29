@@ -1,0 +1,68 @@
+class Area
+{
+    private:
+        float len , wid , radius , length , rect_area , circle_area , sq_area;
+    public:
+        void Set_len_wid(float x , float y)
+        {
+            len = x ;
+            wid = y ;
+        }
+        void Set_radius(float x)
+        {
+            radius = x ;
+        }
+        void Set_length(float x)
+        {
+            length = x ;
+        }
+        float get_len()
+        {
+            return len ;
+        }
+        float get_wid()
+        {
+            return wid ;
+        }
+        float get_radius()
+        {
+            return radius ;
+        }
+        float get_length()
+        {
+            return length ;
+        }
+        void area_rectangle()
+        {
+            if(len<0 || wid<0)
+            rect_area = 0 ; 
+            else
+            rect_area = len * wid ;
+        }
+        float get_area_rect()
+        {
+            return rect_area ;
+        }
+        void area_circle()
+        {
+            if(radius<0)
+            circle_area = 0 ; 
+            else
+            circle_area = 3.14 * radius * radius ;
+        }
+        float get_area_circle()
+        {
+            return circle_area ;
+        }
+        void square_area()
+        {
+            if(length<0)
+            sq_area = 0 ;
+            else
+            sq_area = length * length ;
+        }
+        float get_area_square()
+        {
+            return sq_area ;
+        }
+};
