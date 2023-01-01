@@ -1,0 +1,38 @@
+class Time
+{
+    private:
+        int h , m , s ;
+    public:
+        void setTime(int x , int y , int z)
+        {
+            h = x ;
+            m = y ;
+            s = z ;
+        }
+        void showTime()
+        {
+            cout << h << " : " << m << " : " << s << endl ;
+        }
+        void normalize()
+        {
+            if(s>=60)
+            {
+                m = (s/60) + m ;
+                s = s % 60 ;
+            }
+            if(m>=60)
+            {
+                h = (m/60) + h ;
+                m = m % 60 ;
+            }
+        }
+        Time add (Time T)
+        {
+            Time temp ;
+            temp.s = s + T.s ;
+            temp.m = m + T.m ;
+            temp.h = h + T.h ;
+            temp.normalize();
+            return temp ;
+        }
+};
