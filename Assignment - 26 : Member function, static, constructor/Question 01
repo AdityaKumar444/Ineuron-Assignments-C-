@@ -1,0 +1,22 @@
+class Complex
+{
+    private:
+        int a , b ;
+    public:
+        void setData(int x , int y)
+        {
+            a = x ;
+            b = y ;
+        }
+        void showData()
+        {
+            cout << a << " + " << b << "i" << endl ;
+        }
+        Complex add(Complex C)
+        {
+            Complex t ;
+            t.a = a + C.a ;
+            t.b = b + C.b ;
+            return t ;
+        }
+}; 
