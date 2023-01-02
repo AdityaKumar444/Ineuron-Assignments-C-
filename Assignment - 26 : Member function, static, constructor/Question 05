@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std ;
+class Date
+{
+    private:
+        int d , m , y ;
+    public:
+    Date()
+    {
+        cout << "Enter date , month and year : " << endl ;
+        cin >> d >> m >> y ;
+    }
+    void displayDate()
+    {
+        cout << "The date is " << d << "/" << m << "/" << y << endl ;
+    }
+};
+int main () 
+{
+    Date c1 ;
+    c1.displayDate();
+    return 0 ; 
+}
