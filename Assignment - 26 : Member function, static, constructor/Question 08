@@ -1,0 +1,40 @@
+class Bank
+{
+    private:
+        float p , r , t , SI ;
+    public:
+        Bank()
+        {}
+        Bank(float a , float b , float c)
+        {
+            p = a ;
+            r = b ;
+            t = c ;
+        }
+        void setData(float x , float y , float z)
+        {
+            p = x ;
+            r = y ;
+            t = z ;
+        }
+        float getP()
+        {
+            return p ;
+        }
+        float getR()
+        {
+            return r ;
+        }
+        float getT()
+        {
+            return t ;
+        }
+        void calculate_SI()
+        {
+            SI = ( p * r * t ) / 100 ;
+        }
+        float getSI()
+        {
+            return SI ;
+        }
+};
