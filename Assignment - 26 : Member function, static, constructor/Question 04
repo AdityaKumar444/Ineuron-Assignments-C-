@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std ;
+class Counter
+{
+    private:
+        static int count ;
+    public:
+        Counter()
+        {
+            count++;
+        }
+        int getCount()
+        {
+            return count ;
+        }
+};
+int Counter::count=0;
+int main () 
+{
+    Counter c ;
+    cout << "the counter before = " << c.getCount() << endl ;
+    Counter c1 ;
+    cout << "the counter after = " << c1.getCount() << endl ;
+    return 0 ; 
+}
