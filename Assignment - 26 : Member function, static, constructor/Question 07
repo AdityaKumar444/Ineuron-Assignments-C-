@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std ; 
+class Box
+{
+    private:
+        float length , breadth , height , volume ;
+    public:
+        Box(float x , float y , float z)
+        {
+            length = x ;
+            breadth = y ;
+            height = z ;
+        }
+        void calculate_volume()
+        {
+            volume = length * breadth * height ;
+        }
+        float getVolume()
+        {
+            return volume ;
+        }
+};
+int main () 
+{
+    float length , breadth , height ;
+    cout << "Enter length of box : " ;
+    cin >> length ;
+    cout << "Enter breadth of box : " ;
+    cin >> breadth ;
+    cout << "Enter height of box : " ;
+    cin >> height ;
+    Box B(length,breadth,height) ;
+    B.calculate_volume();
+    cout << "The volume of the box is " << B.getVolume() << endl ;
+    return 0 ; 
+}
