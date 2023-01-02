@@ -1,0 +1,22 @@
+class Cube
+{
+    private:
+        float side , volume ;
+    public:
+    Cube(float x)
+    {
+        side = x ;
+    }
+    float getSide()
+    {
+        return side ;
+    }
+    void calculate_Volume()
+    {
+        volume = side * side * side ;
+    }
+    float getVolume()
+    {
+        return volume ;
+    }
+};
