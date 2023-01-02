@@ -3,7 +3,13 @@ class Cube
     private:
         float side , volume ;
     public:
+    Cube()
+    {}
     Cube(float x)
+    {
+        side = x ;
+    }
+    void setSide(float x)
     {
         side = x ;
     }
