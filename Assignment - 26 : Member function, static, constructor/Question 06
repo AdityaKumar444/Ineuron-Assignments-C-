@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std ; 
+class Student
+{
+    private:
+        string name ;
+        int age ;
+    public:
+        Student(string x , int z)
+        {
+            name = x ;
+            age = z ;
+        }
+        void display()
+        {
+            cout << "Name = " << name << endl << "Age = "<< age ;
+        }
+};
+int main () 
+{
+    Student s("aditya" , 15) ;
+    s.display();
+    return 0 ; 
+}
