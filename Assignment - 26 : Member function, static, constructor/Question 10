@@ -1,0 +1,19 @@
+class StaticCount
+{
+    private:
+        static int var ;
+    public:
+        void setData(int x)
+        {
+            var = x ;
+        }
+        void increment()
+        {
+            var++;
+        }
+        void display()
+        {
+            cout << "incremented value = " << var ;
+        }
+};
+int StaticCount::var;
