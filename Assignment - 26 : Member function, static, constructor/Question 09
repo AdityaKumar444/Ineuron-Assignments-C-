@@ -1,0 +1,34 @@
+class Bill
+{
+    private:
+        string name ;
+        float unit , tariff ;
+    public:
+        Bill(string x , float y )
+        {
+            name = x ;
+            unit = y ;
+        }
+        string getName()
+        {
+            return name ;
+        }
+        float getUnit()
+        {
+            return unit ;
+        }
+        void calculateBill()
+        {
+            if(unit<=100)
+            tariff = unit * 1.20 ;
+            else if(unit>100 && unit<=200)
+            tariff = (100*1.20) + ((unit - 100)*2) ;
+            else if(unit>200)
+            tariff = (100*1.20) + (100*2) + ((unit - 200)*3) ;
+        }
+        float getBill()
+        {
+            return tariff ;
+        }
+
+};
