@@ -1,0 +1,44 @@
+class Complex
+{
+    private:
+        int real , imag ;
+    public:
+        void setData(int x , int y)
+        {
+            real = x ;
+            imag = y ;
+        }
+        Complex operator+(Complex C)
+        {
+            Complex temp ;
+            temp.real = real + C.real ; 
+            temp.imag = imag + C.imag ; 
+            return temp ; 
+        }
+        Complex operator-(Complex C)
+        {
+            Complex temp ;
+            temp.real = real - C.real ;
+            temp.imag = imag - C.imag ;
+            return temp ;
+        }
+        bool operator==(Complex C)
+        {
+            if(real==C.real && imag==C.imag)
+            return true ;
+            else
+            return false ;
+        }
+        void display()
+        {
+            cout << real << " + " << imag << "i " << endl ;
+        }
+        friend Complex operator*(Complex,Complex);
+};
+Complex operator*(Complex c , Complex d)
+{
+    Complex res ;
+    res.real = c.real*d.real + -(c.imag*d.imag) ;
+    res.imag = c.real*d.imag + c.imag*d.real ;
+    return res ;
+}
