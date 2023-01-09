@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std ; 
+class Complex
+{
+    private:
+        int real , imag ;
+    public:
+        void setData(int x , int y)
+        {
+            real = x ;
+            imag = y ;
+        }
+        Complex operator+(Complex C)
+        {
+            Complex temp ;
+            temp.real = real + C.real ; 
+            temp.imag = imag + C.imag ; 
+            return temp ; 
+        }
+        void display()
+        {
+            cout << real << " + " << imag << "i " << endl ;
+        }
+        friend Complex operator+(Complex,Complex);
+};
+Complex operator+(Complex c , Complex d)
+{
+    Complex temp ;
+    temp.real = c.real + d.real ;
+    temp.imag = c.imag + d.imag ;
+    return temp ;   
+}
+int main () 
+{
+    Complex a , b , c ;
+    a.setData(5,7);
+    b.setData(8,5);
+    c = a.operator+(b);
+    c.display();
+    c = operator+(a,b);
+    c.display();
+    return 0 ; 
+}
