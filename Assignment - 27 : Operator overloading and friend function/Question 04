@@ -13,7 +13,9 @@ class Time
         }
         int operator==(Time t)
         {
-            if((h == t.h) && (m == t.m) && (s == t.s))
+            int tot = h * 3600 + m * 60 + s ;
+            int tot1 = t.h * 3600 + t.m * 60 + t.s;
+            if(tot==tot1)
             return 1 ;
             else
             return 0 ;
