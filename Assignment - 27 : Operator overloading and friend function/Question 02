@@ -1,0 +1,63 @@
+#include<iostream>
+using namespace std ;
+class unary
+{
+    private:
+        int a ;
+    public:
+        void setData(int x)
+        {
+            a = x ;
+        }
+        unary operator++()
+        {
+            unary temp ;
+            temp.a = ++a ;
+            return temp;
+        }
+        unary operator++(int x)
+        {
+            unary temp ;
+            temp.a = a++ ;
+            return temp;
+        }
+        unary operator--()
+        {
+            unary temp ;
+            temp.a = --a ;
+            return temp;
+        }
+        unary operator--(int x)
+        {
+            unary temp ;
+            temp.a = a-- ;
+            return temp;
+        }
+        void display()
+        {
+            cout << a << endl ;
+        }
+        int getData()
+        {
+            return a ;
+        }
+} ;
+int main () 
+{
+    unary c , d ;
+    c.setData(5);
+    d.setData(10);
+    cout << "number is " << c.getData() << endl ;  // increment 
+    cout << "pre increment : " << endl ;
+    (++c).display();
+    cout << "post increment : " << endl ;
+    (c++).display();
+    c.display();
+    cout << "number is " << d.getData() << endl ;  // decrement
+     cout << "pre decrement : " << endl ;
+    (--d).display();
+    cout << "post decrement : " << endl ;
+    (d--).display();
+    d.display();
+    return 0 ; 
+}
