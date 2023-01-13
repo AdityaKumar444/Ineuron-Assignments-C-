@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std ;
+class Time
+{
+    private:
+        int h , m , s ;
+    public:
+        Time()
+        {
+            h = 0 ;
+            m = 0 ;
+            s = 0 ;
+        }
+        int operator==(Time t)
+        {
+            if((h == t.h) && (m == t.m) && (s == t.s))
+            return 1 ;
+            else
+            return 0 ;
+        }
+        friend istream & operator>>(istream &is , Time &t);      
+        friend ostream & operator<<(ostream &os , Time &t);
+}; 
+ostream & operator<<(ostream &out , Time &t)
+{
+    out << "Hours    :  " << t.h << endl ;
+    out << "Minutes  :  " << t.m << endl ;
+    out << "Seconds  :  " << t.s << endl ;
+    return out ;
+}
+istream & operator>>(istream &in , Time &t)
+{
+    cout << "Enter hours    : " ;
+    in >> t.h ;
+    cout << "\nEnter minutes  : " ;
+    in >> t.m ;
+    cout << "\nEnter seconds  : " ;
+    in >> t.s ;
+    return in ;
+}
+int main () 
+{
+    Time a , b ;
+    cout << "Enter First Time\n" << "--------------------" << endl ;
+    cin >> a ;
+    cout << "\nFirst Time\n" << a ;
+    cout << "\nEnter Second Time\n" << "--------------------" << endl ;
+    cin >> b ;
+    cout << "\nSecond Time\n" << b ;
+    if(a == b)
+    cout << "\nTimes are same" ;
+    else
+    cout << "\nTimes are not same" ;
+    return 0 ;
+}
