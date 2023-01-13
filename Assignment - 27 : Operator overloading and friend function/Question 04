@@ -36,6 +36,16 @@ istream & operator>>(istream &in , Time &t)
     in >> t.m ;
     cout << "\nEnter seconds  : " ;
     in >> t.s ;
+    if(t.s>=60)
+    {
+        t.m = (t.s/60) + t.m ;
+        t.s = t.s % 60 ;
+    }
+    if(t.m>=60)
+    {
+        t.h = (t.m/60) + t.h ;
+        t.m = t.m % 60 ;
+    }
     return in ;
 }
 int main () 
