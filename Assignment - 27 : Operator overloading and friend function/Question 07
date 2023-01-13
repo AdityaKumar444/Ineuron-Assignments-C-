@@ -1,0 +1,74 @@
+#include<iostream>
+using namespace std ; 
+class fraction
+{
+    private:
+        long numerator , denominator ;
+    public:
+        fraction(long n = 0 , long d = 0)
+        {
+            numerator = n ;
+            denominator = d ;
+        }
+        fraction operator++()
+        {
+            fraction temp ;
+            temp.numerator = ++numerator ;
+            temp.denominator = ++denominator ;
+            return temp;
+        }
+        fraction operator++(int)
+        {
+            fraction temp ;
+            temp.numerator = numerator++ ;
+            temp.denominator = denominator++ ;
+            return temp;
+        }
+        friend istream & operator>>(istream &in , fraction &f);
+        friend ostream & operator<<(ostream &out , fraction &f);
+};
+istream & operator>>(istream &in , fraction &f)
+{
+    cout << "Numerator    :   " ;
+    in >> f.numerator ;
+    cout << endl ;
+    cout << "Denominator  :   " ;
+    in >> f.denominator ;
+    return in ;
+}
+ostream & operator<<(ostream &out , fraction &f)
+{
+    out << f.numerator << "/" << f.denominator << endl ;
+    return out ;
+}
+int main () 
+{
+    fraction f1 , f2 ;
+    cout << "f1   :   " ;
+    cout << f1 ;
+    cout << "f2   :   " ;
+    cout << f2 ;
+    cout << "\nEnter 1st Fraction Value\n\n" ;
+    cin >> f1 ;
+    cout << "\nf1++   :   " ;
+    f1++ ;
+    cout << f1 ;
+    cout << "++f1   :   " ;
+    ++f1 ;
+    cout << f1 ;
+    cout << "\nEnter 2nd Fraction Value\n\n" ;
+    cin >> f2 ;
+    f2 = ++f1 ;
+    cout << endl << "f2 = ++f1" << endl ;
+    cout << "f1    :    " ;
+    cout << f1 ;
+    cout << "f2    :    " ;
+    cout << f2 ;
+    f2 = f1++ ;
+    cout << endl << "f2 = f1++" << endl ;
+    cout << "f1    :    " ;
+    cout << f1 ;
+    cout << "f2    :    " ;
+    cout << f2 ;
+    return 0 ; 
+}
