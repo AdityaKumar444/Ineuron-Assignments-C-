@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std ;
+class Numbers
+{
+    private:
+        int x , y , z ;
+    public:
+        void inputData()
+        {
+            cout << "Enter x : " ;
+            cin >> x ;
+            cout << "Enter y : " ;
+            cin >> y ;
+            cout << "Enter z : " ;
+            cin >> z ;
+        }
+        void operator-()
+        {
+            x = - x ;
+            y = - y ;
+            z = - z ;
+        }
+        void display()
+        {
+            cout << x << " " << y << " " << z << endl ;
+        }
+};
+int main () 
+{
+    Numbers n1 ;
+    n1.inputData();
+    cout << "The numbers are : " ;
+    n1.display();
+    -n1;
+    cout << "Negated numbers are : " ;
+    n1.display();
+    return 0 ; 
+}
