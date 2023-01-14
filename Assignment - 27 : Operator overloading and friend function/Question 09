@@ -1,0 +1,31 @@
+class mystring
+{
+    private:
+        char str [100];
+    public:
+        void input()
+        {
+            cout << "Enter a string : " ;
+            fgets(str,100,stdin);
+            int len = strlen(str);
+            if (len > 0 && str[len - 1] == '\n')
+            str[len - 1] = '\0';
+        }
+        void display()
+        {
+            cout << endl << str ;
+        }
+        friend mystring operator!(mystring x)
+        {
+            mystring temp ;
+            strcpy(temp.str , x.str) ;
+            for (int i = 0; temp.str[i]!='\0' ; i++)
+            {
+                if (temp.str[i] >= 'a' && temp.str[i] <= 'z')
+                temp.str[i] = temp.str[i] - 32 ;
+                else if (temp.str[i] >= 'A' && temp.str[i] <= 'Z')
+                temp.str[i] = temp.str[i] + 32 ;
+            }
+            return temp ;
+        }
+}; 
