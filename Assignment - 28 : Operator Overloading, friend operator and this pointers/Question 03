@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std ;
+class subscript
+{
+    private:
+        int a[1000] ;
+        int size = 1000 ;
+    public:
+        void setArray(int index , int n)
+        {
+            a[index] = n ;
+        }
+        int operator[](int index)
+        {
+            if(index > size)
+            {
+                cout << endl << "Array Index Out Of Bounds Exception" << endl ;
+                return 0 ;
+            }
+            else
+            return a[index] ;
+        }
+};
+int main () 
+{
+    subscript s , s1 ;
+    s.setArray(512,990) ;
+    cout << s[512] ;
+    s1.setArray(1010,74);
+    cout << s[1010] ;
+    return 0 ; 
+}
