@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std ;
+class Marks
+{
+    private:
+        int marks = 100 ;
+    public:
+        void display()
+        {
+            cout << "Marks = " << marks << endl ;
+        }
+        Marks * operator->()
+        {
+            return this ;
+        }
+}; 
+int main () 
+{
+    Marks m ;
+    m->display();
+    return 0 ; 
+}
