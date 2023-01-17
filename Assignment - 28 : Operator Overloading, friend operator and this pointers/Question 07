@@ -1,0 +1,18 @@
+class integer
+{
+    private:
+        int a ;
+    public:
+        void setData(int k)
+        {
+            a = k ;
+        }
+        int operator!()
+        {
+            return !a ;
+        }
+        void display()
+        {
+            cout << a << endl ;
+        }
+}; 
