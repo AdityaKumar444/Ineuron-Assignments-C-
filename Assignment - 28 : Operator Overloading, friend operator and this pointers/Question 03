@@ -12,12 +12,11 @@ class subscript
         }
         int operator[](int index)
         {
-            if(index > size)
+            if(index >= size)
             {
                 cout << endl << "Array Index Out Of Bounds Exception" << endl ;
-                return 0 ;
+                exit(0) ;
             }
-            else
             return a[index] ;
         }
 };
