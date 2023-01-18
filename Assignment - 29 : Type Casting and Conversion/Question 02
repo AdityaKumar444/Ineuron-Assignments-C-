@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std ;
+class Complex
+{
+    private:
+        int real , imag ;
+    public:
+        Complex(){}
+        void setData(int x , int y)
+        {
+            real = x ;
+            imag = y ;
+        }
+        void display()
+        {
+            cout << "real = " << real << endl ;
+            cout << "imag = " << imag << endl ;
+        }
+        operator int()
+        {
+            return (real * imag) ;
+        }
+}; 
+int main () 
+{
+    Complex c1 ;
+    c1.setData(3,4);
+    int x ;
+    x = c1 ;
+    cout << x ;
+    return 0 ; 
+}
