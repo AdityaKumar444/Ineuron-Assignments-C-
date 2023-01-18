@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std ; 
+class Integer
+{
+    private:
+        int x ;
+    public:
+        Integer(){}
+        Integer (int i)
+        {
+            x = i ;
+        }
+        operator int()
+        {
+            return x ;
+        }
+        void display()
+        {
+            cout << "object value = " << x << endl ; 
+        }
+};
+int main () 
+{
+    int x ;
+    Integer a ;
+    a = 5 ;
+    a.display();
+    x = (int) a ;
+    cout << "after typecasting = " << x << endl ;
+    return 0 ; 
+}
