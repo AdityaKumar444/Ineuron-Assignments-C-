@@ -1,39 +1,41 @@
 class Invent2
 {
     private:
-        int x ;
+        int x , y ;
     public:
         Invent2 (){}
-        Invent2 (int a)
+        Invent2 (int a , int b)
         {
             x = a ;
+            y = b ;
         }
         void display ()
         {
-            cout << x << endl ;
+            cout << x << " " << y << endl ;
         }
 }; 
 class Invent1
 {
     private:
-        int x ;
+        int x , y ;
     public:
         Invent1(){}
-        Invent1(int a)
+        Invent1(int a , int b)
         {
             x = a ;
+            y = b ;
         }
         operator float()
         {
-            return x ;
+            return (x+y) ;
         }
         void display ()
         {
-            cout << x << endl ;
+            cout << x << " " << y << endl ;
         }
         operator Invent2()
         {
-            Invent2 i(x) ;
+            Invent2 i(x,y) ;
             return i ; 
         }
 };
