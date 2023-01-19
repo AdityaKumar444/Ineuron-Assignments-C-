@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+class Rupee
+{
+    private:
+        float x;
+    public :
+        int getR() { return x ;}
+        Rupee(){}
+        Rupee(float n){ x = n; }
+        void display()
+        {
+            cout << "Rupee is " << x << endl;
+        }
+};
+class Dollar
+{
+    private:
+        float x;
+    public :
+        Dollar(){}
+        Dollar(float n)
+        { x = n ; }
+        Dollar(Rupee r)
+        {
+            x = r.getR()/81.0 ;
+        } 
+        void display()
+        {
+            cout << "Dollar is " << x << endl;
+        }
+        int getD()
+        { return x ; }
+        operator Rupee()
+        {
+            return x*81.0 ;
+        }
+};
+int main()
+{
+    Rupee r = 23 ;
+    Dollar d = r ; // Rupee to Dollar conversion
+    d.display() ;
+    r.display() ;
+    r = d ;       // Dollar to Rupee Conversion
+    d.display() ;
+    r.display() ;
+    return 0 ;   
+}
