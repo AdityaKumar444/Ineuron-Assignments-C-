@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std ;
+class Item
+{
+    private:
+        int x , y ;
+    public:
+        Item (){}
+        Item (int a , int b)
+        {
+            x = a ;
+            y = b ;
+        }
+        void display ()
+        {
+            cout << "x = " << x << endl ;
+            cout << "y = " << y << endl ;
+        }
+};
+class Product
+{
+    private:
+        int x , y ;
+    public:
+        Product(){}
+        void setData(int a , int b)
+        {
+            x = a ;
+            y = b ;
+        }
+        int getX()
+        {
+            return x ;
+        }
+        int getY()
+        {
+            return y ;
+        }
+        operator Item()
+        {
+            Item i(x , y);
+            return i ;
+        }
+}; 
+int main () 
+{
+    Item i1 ;
+    Product p1 ;
+    p1.setData(3,4) ;
+    i1 = p1 ;
+    i1.display();
+    return 0 ; 
+}
