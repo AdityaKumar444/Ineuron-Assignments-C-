@@ -1,0 +1,15 @@
+class Time
+{
+    private:
+        int h , m ;
+    public:
+        Time(int sec)
+        {
+            h = sec / 3600 ;
+            m = (sec - 3600) / 60 ;    
+        }
+        void display()
+        {
+            cout << "Time = " << h << " hrs "<< m << " mins" << endl ;
+        }
+};
