@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Rupee
+{
+    private:
+        int x ;
+    public :
+        Rupee(){}
+        Rupee(int n) { x = n; }
+        void display()
+        {
+            cout<<"Rupee is "<< x <<endl;
+        }
+        operator int() { return x; }
+};
+int main()
+{
+    Rupee r = 10 ;
+    int x = r ;
+    cout << x ;
+    return 0 ;
+}
