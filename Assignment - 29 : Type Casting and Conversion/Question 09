@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std ;
+class Dollar
+{   
+    private:
+        int x;
+    public :
+        Dollar(){}
+        Dollar(int n){ x = n; }
+        void display()
+        {
+            cout<<"Dollar is "<< x <<endl;
+        }
+}; 
+int main () 
+{
+    int x = 50 ;
+    Dollar d;
+    d = x ;
+    d.display();
+    return 0 ; 
+}
