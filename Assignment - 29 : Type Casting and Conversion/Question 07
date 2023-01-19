@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std ;
+class Minute
+{
+    private:
+        int min = 0 ;
+    public:
+        Minute(){}
+        Minute(int x)
+        {
+            min = x ;
+        }
+        void display()
+        {
+            cout << "Minutes = " << min << endl ;
+        }
+}; 
+class Time
+{
+    private:
+        int h = 0 , m = 0 ;
+    public:
+        Time(){}
+        Time(int x , int y)
+        {
+            h = x ;
+            m = y ;
+        }
+        void setTime(int x , int y)
+        {
+            h = x ;
+            m = y ;
+        }
+        int getHr(){ return h; }
+        int getMin(){ return m; }
+        void display()
+        {
+            cout << "Time = " << h << " hrs " << m << " mins" << endl ; 
+        }
+        operator Minute()
+        {
+            Minute min(m);
+            return min ;
+        }
+};
+int main () 
+{
+    Time t1(2,30);
+    t1.display();
+    Minute m1;
+    m1.display();
+    m1 = t1 ; // Fetch minute from time
+    t1.display();
+    m1.display();
+    return 0 ; 
+}
