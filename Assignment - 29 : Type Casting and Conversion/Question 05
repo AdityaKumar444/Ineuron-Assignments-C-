@@ -1,0 +1,39 @@
+class Invent2
+{
+    private:
+        int x ;
+    public:
+        Invent2 (){}
+        Invent2 (int a)
+        {
+            x = a ;
+        }
+        void display ()
+        {
+            cout << x << endl ;
+        }
+}; 
+class Invent1
+{
+    private:
+        int x ;
+    public:
+        Invent1(){}
+        Invent1(int a)
+        {
+            x = a ;
+        }
+        operator float()
+        {
+            return x ;
+        }
+        void display ()
+        {
+            cout << x << endl ;
+        }
+        operator Invent2()
+        {
+            Invent2 i(x) ;
+            return i ; 
+        }
+};
