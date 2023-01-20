@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std ;
+void exception_int(int);
+void exception_int(int num)
+{
+    cout << endl ;
+    if(num > 0)
+    cout << "Number is = " << num << endl ;
+    else 
+    try
+    {
+        if(num<0)
+        throw num ;
+        else if(num==0)
+        throw 1.0 ;
+    }
+    catch(double)
+    {
+        cout << "Number is zero" << endl ;
+    }
+    catch(int)
+    {
+        cout << "number is negative" << endl ;
+    }
+}
+int main () 
+{
+    int num ;
+    cout << "Enter an integer : " ;
+    cin >> num ;
+    exception_int(num);
+    return 0 ; 
+}
