@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std ; 
+int main () 
+{
+    char str[100] ;
+    cout << "Enter your email : " ;
+    fflush(stdin);
+    fgets(str,100,stdin);
+    try
+    {
+        int count = 0 ;
+        for (int i = 0 ; str[i] != '\0' ; i++)
+        {
+            if(str[i]=='@')
+            count = 1 ;
+        }
+        if(count == 0)
+        throw 'a';
+    }
+    catch(char)
+    {
+        cout << endl << "ERROR : Invalid email address !!!" << endl ;      
+        cout << "[ does not contain @ ]" << endl ;    
+        exit(0);  
+    }
+    cout << "Your email is : " << str << endl ;
+    return 0 ; 
+}
