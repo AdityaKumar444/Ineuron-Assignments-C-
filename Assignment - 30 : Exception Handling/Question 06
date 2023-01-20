@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstring>
 using namespace std ; 
 int main () 
 {
@@ -7,9 +8,7 @@ int main ()
     cout << endl << "Enter your area pincode : " ;
     fflush(stdin);
     fgets(pin,10,stdin);
-    for (int i = 0 ; pin[i] != '\0' ; i++)
-    count++;
-    count--;
+    count = strlen(pin) - 1 ;
     try
     {
         if(count < 6)
