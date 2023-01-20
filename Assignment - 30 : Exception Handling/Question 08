@@ -1,0 +1,62 @@
+#include<iostream>
+#include<cstring>
+using namespace std ; 
+int main () 
+{
+    char pass[50] ;
+    int count = 0 , *p ;
+    p = NULL ;
+    bool digit = false , symbol = false , capital = false ;
+    cout << endl << "Enter your password : " ;
+    fflush(stdin);
+    fgets(pass,50,stdin);
+    count = strlen(pass) - 1 ;
+    for (int i = 0 ; pass[i] != '\0' ; i++)
+    {
+        if(pass[i]>='0' && pass[i]<='9')
+        digit = true ;
+
+        if((pass[i]>='!' && pass[i]<='/') || (pass[i]>=':' && pass[i]<='@') || (pass[i]>='[' && pass[i]<='`') || (pass[i]>='{' && pass[i]<='~'))
+        symbol = true ;
+
+        if(pass[i]>='A' && pass[i]<='Z')
+        capital = true ;
+    }
+    try
+    {
+        if(count < 6)
+        throw 'a' ;
+        if(digit==false)
+        throw 1 ;
+        if(symbol==false)
+        throw 1.2 ;
+        if(capital==false)
+        throw p ;
+    }
+    catch(char)
+    {
+        cout << endl << "ERROR : Invalid password !!!" << endl ;      
+        cout << "[ password contains less than 6 characters ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int)
+    {
+        cout << endl << "ERROR : Invalid password !!!" << endl ;      
+        cout << "[ password does not contain any digit ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(double)
+    {
+        cout << endl << "ERROR : Invalid password !!!" << endl ;      
+        cout << "[ password does not contain any special symbol ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int *)
+    {
+        cout << endl << "ERROR : Invalid password !!!" << endl ;      
+        cout << "[ password does not contain any capital letter ]" << endl << endl ;    
+        exit(0);  
+    }
+    cout << endl << "Your password is : " << pass << endl ;
+    return 0 ; 
+}
