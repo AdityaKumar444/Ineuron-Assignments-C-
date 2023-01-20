@@ -1,0 +1,54 @@
+#include<iostream>
+#include<cstring>
+using namespace std ;
+void exception_int_string(int , char []);
+void exception_int_string(int num , char str[])
+{
+    int len = strlen(str);
+    cout << endl ;
+    try
+    {
+        if(num>0)
+        throw num ;
+        else if(num<0)
+        throw 1.0 ;
+        else 
+        cout << "Number is zero" << endl ;
+    }
+    catch(double)
+    {
+        cout << "Number is negative" << endl ;
+    }
+    catch(int)
+    {
+        cout << "number is positive" << endl ;
+    }
+    try
+    {
+        if(len < 10)
+        throw 'a' ;
+        else if (len > 50)
+        throw str; 
+        cout << "string length is good" << endl ;
+    }
+    catch(char)
+    {
+        cout << "string length is too short" << endl ;
+    }
+    catch(char *)
+    {
+        cout << "string length is too long" << endl ;
+    }
+}
+int main () 
+{
+    int num ;
+    char str[1000] ;
+    cout << "Enter an integer : " ;
+    cin >> num ;
+    cout << "\nEnter a string : " ;
+    fflush(stdin);
+    fgets(str,1000,stdin);
+    exception_int_string(num , str);
+    return 0 ; 
+}
