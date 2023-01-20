@@ -1,16 +1,14 @@
 #include<iostream>
+#include<cstring>
 using namespace std ; 
 int main () 
 {
-    system("cls");
     char mobile[15] ;
     int count = 0 ;
-    cout << "Enter your mobile number : " ;
+    cout << endl << "Enter your mobile number : " ;
     fflush(stdin);
     fgets(mobile,15,stdin);
-    for (int i = 0 ; mobile[i] != '\0' ; i++)
-    count++;
-    count--;
+    count = strlen(mobile) - 1 ;
     try
     {
         if(count < 10)
