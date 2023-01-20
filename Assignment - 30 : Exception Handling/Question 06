@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std ; 
+int main () 
+{
+    char pin[10] ;
+    int count = 0 ;
+    cout << endl << "Enter your area pincode : " ;
+    fflush(stdin);
+    fgets(pin,10,stdin);
+    for (int i = 0 ; pin[i] != '\0' ; i++)
+    count++;
+    count--;
+    try
+    {
+        if(count < 6)
+        throw 'a';
+        if(count > 6)
+        throw 1 ;
+    }
+    catch(char)
+    {
+        cout << endl << "ERROR : Invalid area pincode !!!" << endl ;      
+        cout << "[ does not contain 6 digits ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int)
+    {
+        cout << endl << "ERROR : Invalid area pincode !!!" << endl ;      
+        cout << "[ contains more than 6 digits ]" << endl << endl ;    
+        exit(0);  
+    }
+    cout << endl << "Your area pincode is : " << pin << endl ;
+    return 0 ; 
+}
