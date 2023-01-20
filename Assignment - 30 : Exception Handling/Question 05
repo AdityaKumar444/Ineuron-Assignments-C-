@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std ; 
+int main () 
+{
+    system("cls");
+    char mobile[15] ;
+    int count = 0 ;
+    cout << "Enter your mobile number : " ;
+    fflush(stdin);
+    fgets(mobile,15,stdin);
+    for (int i = 0 ; mobile[i] != '\0' ; i++)
+    count++;
+    count--;
+    try
+    {
+        if(count < 10)
+        throw 'a';
+        if(count > 10)
+        throw 1 ;
+    }
+    catch(char)
+    {
+        cout << endl << "ERROR : Invalid mobile number !!!" << endl ;      
+        cout << "[ does not contain 10 digits ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int)
+    {
+        cout << endl << "ERROR : Invalid mobile number !!!" << endl ;      
+        cout << "[ contains more than 10 digits ]" << endl << endl ;    
+        exit(0);  
+    }
+    cout << endl << "Your mobile number is : " << mobile << endl ;
+    return 0 ; 
+}
