@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std ; 
+int main () 
+{
+    system("cls");
+    float n1 , n2 , res ;
+    char Operator ;
+    cout << "perform arithmetic operations on two numbers" << endl ;
+    cout << endl << "Enter first number : " ;
+    cin >> n1 ;
+    cout << endl << "Enter second number : " ;
+    cin >> n2 ;
+    cout << endl << "Enter operator to perform arithmetic operation : " ;
+    cin >> Operator ;
+    try
+    {
+        if(Operator != '+' && Operator != '-' && Operator != '*' && Operator != '/')
+        throw 'a' ;
+    }
+    catch(const char)
+    {
+        cout << endl << "ERROR : Invalid operator" << endl ;
+        exit(0);
+    }
+    switch (Operator)
+    {
+    case '+':
+        res = n1 + n2 ;
+        cout << n1 << " + " << n2 << " = " << res << endl ;
+        break;
+    case '-':
+        res = n1 - n2 ;
+        cout << n1 << " - " << n2 << " = " << res << endl ;
+        break;
+    case '*':
+        res = n1 * n2 ;
+        cout << n1 << " * " << n2 << " = " << res << endl ;
+        break;
+    case '/':
+        try
+        {
+            if(n1==0 && n2==0)
+            throw 'a' ;
+            if(n2==0)
+            throw 0 ;
+        }
+        catch(const char)
+        {
+            cout << endl << "ERROR : Result is undefined" << endl ;
+            exit(0);
+        }
+        catch(const int)
+        {
+            cout << endl << "ERROR : Cannot divide by zero" << endl ;
+            exit(0);
+        }
+        res = n1 / n2 ;
+        cout << n1 << " / " << n2 << " = " << res << endl ;
+        break;
+    }
+    return 0 ; 
+}
