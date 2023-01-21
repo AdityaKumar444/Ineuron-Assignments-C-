@@ -1,0 +1,62 @@
+#include<iostream>
+#include<cstring>
+using namespace std ; 
+int main () 
+{
+    char pass[50] ;
+    int count = 0 , *p ;
+    p = NULL ;
+    bool digit = true , symbol = true , space = true ;
+    cout << endl << "Enter your nickname : " ;
+    fflush(stdin);
+    fgets(pass,50,stdin);
+    count = strlen(pass) - 1 ;
+    for (int i = 0 ; pass[i] != '\0' ; i++)
+    {
+        if(pass[i]>='0' && pass[i]<='9')
+        digit = false ;
+
+        if((pass[i]>='!' && pass[i]<='/') || (pass[i]>=':' && pass[i]<='@') || (pass[i]>='[' && pass[i]<='`') || (pass[i]>='{' && pass[i]<='~'))
+        symbol = false ;
+
+        if(pass[i]==' ')
+        space = false ;
+    }
+    try
+    {
+        if(count > 8)
+        throw 'a' ;
+        if(digit==false)
+        throw 1 ;
+        if(symbol==false)
+        throw 1.2 ;
+        if(space==false)
+        throw p ;
+    }
+    catch(char)
+    {
+        cout << endl << "ERROR : Invalid nickname !!!" << endl ;      
+        cout << "[ nickname contains more than 8 characters ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int)
+    {
+        cout << endl << "ERROR : Invalid nickname !!!" << endl ;      
+        cout << "[ nickname contains digit ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(double)
+    {
+        cout << endl << "ERROR : Invalid nickname !!!" << endl ;      
+        cout << "[ nickname contains special symbol ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(int *)
+    {
+        cout << endl << "ERROR : Invalid nickname !!!" << endl ;      
+        cout << "[ nickname contains space ]" << endl << endl ;    
+        exit(0);  
+    }
+    cout << endl << "Your nickname is valid\n" << endl ;
+    return 0 ; 
+}
