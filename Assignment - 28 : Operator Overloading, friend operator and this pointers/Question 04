@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std ; 
+class student
+{
+    private:
+        int roll_no , age ; 
+    public:
+        void setData(int x , int y)
+        {
+            roll_no = x ;
+            age = y ; 
+        }
+        void display()
+        {
+            cout << "roll no = " << roll_no << endl ;
+            cout << "age = " << age << endl ;
+        }
+        void * operator new(size_t size , int a , int b)
+        {
+            cout << "new called" << endl ;
+            student * p = (student*)malloc(size);
+            p->roll_no = a ;
+            p->age = b ;    
+            return p ;
+        }
+        void operator delete(void *p)
+        {
+            cout << "delete called" << endl ;
+            free(p);
+        }
+};
+int main () 
+{
+    student *s1 ;
+    s1 = new(4,5) student ;
+    s1->display();
+    delete(s1);
+    return 0 ; 
+}
