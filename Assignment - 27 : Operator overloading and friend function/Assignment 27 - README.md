@@ -56,7 +56,6 @@ Public:
 //methods;
 };
 Overload the - (Unary) should negate the numbers stored in the object.
-Output -
 
 9. Consider the following class mystring
 Class mystring
