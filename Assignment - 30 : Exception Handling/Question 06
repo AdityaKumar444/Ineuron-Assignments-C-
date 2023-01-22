@@ -1,16 +1,17 @@
 #include<iostream>
-#include<cstring>
 using namespace std ; 
 int main () 
 {
-    char pin[10] ;
-    int count = 0 ;
+    int pin , count = 0 ;
     cout << endl << "Enter your area pincode : " ;
-    fflush(stdin);
-    fgets(pin,10,stdin);
-    count = strlen(pin) - 1 ;
+    cin >> pin ;
     try
     {
+        for (int i = 1 ; pin!=0 ; i++)
+        {
+            pin = pin / 10 ;
+            count++;
+        }
         if(count < 6)
         throw 'a';
         if(count > 6)
@@ -28,6 +29,6 @@ int main ()
         cout << "[ contains more than 6 digits ]" << endl << endl ;    
         exit(0);  
     }
-    cout << endl << "Your area pincode is : " << pin << endl ;
+    cout << endl << "Your area pincode is valid" << endl ;
     return 0 ; 
 }
