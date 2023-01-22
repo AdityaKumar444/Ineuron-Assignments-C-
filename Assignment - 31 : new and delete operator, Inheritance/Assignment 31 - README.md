@@ -38,9 +38,9 @@ class to represent an Employee (emp-code, name).
 Derive two classes as Fulltime (daily rate, number of days, salary) and
 Parttime (number of working hours, hourly rate, salary).
 Write a menu driven program to:
-1. Accept the details of ‘n’ employees.
-2. Display the details of ‘n’ employees.
-3. Search a given Employee by emp-code.
+(i). Accept the details of ‘n’ employees.
+(ii). Display the details of ‘n’ employees.
+(iii). Search a given Employee by emp-code.
 
 8 - In a bank, different customers have savings account. Some customers may
 have taken a loan from the bank. So bank always maintain information about
