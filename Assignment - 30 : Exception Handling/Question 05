@@ -1,16 +1,17 @@
 #include<iostream>
-#include<cstring>
 using namespace std ; 
 int main () 
 {
-    char mobile[15] ;
-    int count = 0 ;
+    int mobile , count = 0 ;
     cout << endl << "Enter your mobile number : " ;
-    fflush(stdin);
-    fgets(mobile,15,stdin);
-    count = strlen(mobile) - 1 ;
+    cin >> mobile ;
     try
     {
+        for (int i = 1 ; mobile!=0 ; i++)
+        {
+            mobile = mobile / 10 ;
+            count++ ;
+        }
         if(count < 10)
         throw 'a';
         if(count > 10)
@@ -28,6 +29,6 @@ int main ()
         cout << "[ contains more than 10 digits ]" << endl << endl ;    
         exit(0);  
     }
-    cout << endl << "Your mobile number is : " << mobile << endl ;
+    cout << endl << "Your mobile number is valid" << endl ;
     return 0 ; 
 }
