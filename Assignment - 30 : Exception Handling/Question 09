@@ -23,8 +23,8 @@ int check_substring(char str[] , char s[])
 int main () 
 {
     char str[50] , substring[10] = "gmail.com";
-    bool count = false ;
-    int gmail ;
+    bool count = false , dt = false ;
+    int gmail , atof , dot ;
     cout << endl << "Enter your email : " ;
     fflush(stdin);
     fgets(str,50,stdin);
@@ -33,13 +33,23 @@ int main ()
         for (int i = 0 ; str[i]!='\0' ; i++)
         {
             if(str[i]=='@')
-            count = true ;
+            {
+                count = true ;
+                atof = i ;
+            }
+            if(str[i]=='.')
+            {
+                dt = true ;
+                dt = i ;
+            }
         }
         gmail = check_substring(str,substring);
         if(count == false)
         throw 'a';
         if(gmail == -1)
         throw 1 ;
+        if(atof > dt)
+        throw 1.0 ;
     }
     catch(char)
     {
@@ -51,6 +61,12 @@ int main ()
     {
         cout << endl << "ERROR : Invalid email address !!!" << endl ;      
         cout << "[ does not contain 'gmail.com' ]" << endl << endl ;    
+        exit(0);  
+    }
+    catch(double)
+    {
+        cout << endl << "ERROR : Invalid email address !!!" << endl ;      
+        cout << "[ @ came after '.' ]" << endl << endl ;    
         exit(0);  
     }
     cout << "\nYour email address is valid\n" << endl ;
