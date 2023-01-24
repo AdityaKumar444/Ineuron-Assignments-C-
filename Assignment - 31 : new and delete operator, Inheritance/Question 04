@@ -4,8 +4,8 @@ using namespace std ;
 class Person
 {
     private:
-        char name[50] , address[100] ;
-        int phone_no ;
+        char name[50] , address[50] ;
+        long long phone_no ;
     public:
         void setName() 
         {
