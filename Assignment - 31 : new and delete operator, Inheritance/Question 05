@@ -1,0 +1,67 @@
+#include<iostream>
+#include<cstring>
+using namespace std ;
+class Item
+{
+    protected:
+        int item_no , price ;
+        char name[20] ;
+    public:
+        int getPrice(){ return price ; }
+}; 
+class Discount : public Item
+{
+    private:
+        float discount_per , disc_price , CP ;
+    public:
+        void accept()
+        {
+            cout << endl << "Enter Item Name : " ;
+            fflush(stdin);
+            fgets(name,20,stdin);
+            int len = strlen(name);
+            if (len > 0 && name[len - 1] == '\n')
+            name[len - 1] = '\0';
+            cout << endl << "Enter Item No. : " ;
+            cin >> item_no ;
+            cout << endl << "Enter Item Price : " ;
+            cin >> price ;
+            cout << endl << "Enter Discount Percent : " ;
+            cin >> discount_per ;
+            cout << endl << "------------------------------" << endl ;
+        }
+        float calculatedPrice()
+        {
+            disc_price = (price*(100-discount_per))/100.0 ;
+            return disc_price ;
+        }
+        void display()
+        {
+            cout << endl << "Item Name : " << name ;
+            cout << endl << "Item No. : " << item_no ;
+            cout << endl << "Item Price : " << price ;
+            cout << endl << "Discount Percent : " << discount_per ;
+            cout << endl << "Discounted Price : " << calculatedPrice() ;
+            cout << endl << "\n------------------------------" << endl ;
+        }
+};
+int main () 
+{
+    int n , total_price = 0 ;
+    float total_discount = 0 ;
+    cout << "How many items you want to enter ? : " ;
+    cin >> n ;
+    Discount d[n] ;
+    for(int i = 0 ; i<n ; i++)
+    d[i].accept();
+    for(int i = 0 ; i<n ; i++)
+    {
+        total_price = total_price + d[i].getPrice() ;
+        total_discount = total_discount + (d[i].getPrice() - d[i].calculatedPrice());
+    }
+    for(int i = 0 ; i<n ; i++)
+    d[i].display();
+    cout << "Total Price : " << total_price << endl ;
+    cout << "Total Discount : " << total_discount << endl ;
+    return 0 ; 
+}
