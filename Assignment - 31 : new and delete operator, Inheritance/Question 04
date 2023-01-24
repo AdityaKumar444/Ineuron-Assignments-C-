@@ -1,0 +1,117 @@
+#include<iostream>
+#include<cstring>
+using namespace std ; 
+class Person
+{
+    private:
+        char name[50] , address[100] ;
+        int phone_no ;
+    public:
+        void setName() 
+        {
+            fflush(stdin);
+            fgets(name,50,stdin);
+            int len = strlen(name);
+            if (len > 0 && name[len - 1] == '\n')
+            name[len - 1] = '\0';
+        }
+        void setAddress() 
+        {
+            fflush(stdin);
+            fgets(address,100,stdin);
+            int len = strlen(address);
+            if (len > 0 && address[len - 1] == '\n')
+            address[len - 1] = '\0';
+        }
+        void setPhone() { cin >> phone_no ; }
+        char * getName() { return name ; }
+        char * getAddress() { return address ; }
+        int getPhone() { return phone_no ; }
+};
+class Employee : public Person
+{
+    private:
+        int e_no ;
+        char e_name[50] ; 
+    public:
+        void setEmpno(){ cin >> e_no ; }
+        char * getEmpName() 
+        {
+            strcpy(e_name,getName());
+            return e_name ;
+        }
+};
+class Manager : public Employee
+{
+    private:
+        char designation[20] , dept_name[30] ;
+        float salary ;
+    public:
+        void setDes()
+        {
+            fflush(stdin);
+            fgets(designation,20,stdin);
+            int len = strlen(designation);
+            if (len > 0 && designation[len - 1] == '\n')
+            designation[len - 1] = '\0';
+        }
+        void setDept()
+        {
+            fflush(stdin);
+            fgets(dept_name,30,stdin);
+            int len = strlen(dept_name);
+            if (len > 0 && dept_name[len - 1] == '\n')
+            dept_name[len - 1] = '\0';
+        }
+        void setSalary() 
+        {
+            fflush(stdin);
+            cin >> salary ; 
+        }
+        char * getDes() { return designation ; }
+        char * getDept() { return dept_name ; }
+        float getSalary() { return salary ; }
+};
+void Details_display(int n)
+{
+    Manager m[n] ;
+    char a[50] ;
+    int highest = 0 ;
+    for(int i = 0 ; i<n ; i++)
+    {
+        cout << endl << "Enter details of Manager" << endl;
+        cout << "------------------------------" << endl ;
+        cout << "Enter Employee No. : " ;
+        m[i].setEmpno();
+        cout << endl << "Enter Name : " ;
+        m[i].setName();
+        cout << endl << "Enter Address : " ;
+        m[i].setAddress();
+        cout << endl << "Enter Phone No. : " ;
+        m[i].setPhone();
+        cout << endl << "Enter Designation : " ;
+        m[i].setDes();
+        cout << endl << "Enter Department Name : " ;
+        m[i].setDept();
+        cout << endl << "Enter Basic Salary : " ;
+        m[i].setSalary();   
+    }
+    for(int i = 0 ; i<n ; i++)
+    {
+        if (m[i].getSalary() > highest)
+        {
+            highest = m[i].getSalary();
+            strcpy(a,m[i].getEmpName());
+        }
+    }
+    cout << endl << "Manager with highest salary : " << a << endl ;
+    cout << "Salary is : " << highest << endl ;
+}
+int main () 
+{
+    int n ;
+    cout << "How many managers you want to enter ? : " ;
+    cin >> n ;
+    Details_display(n);
+    return 0 ; 
+}
