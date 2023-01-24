@@ -1,0 +1,54 @@
+#include<iostream>
+using namespace std ;
+class Accept
+{
+    protected:
+        int sub1 , sub2 , sub3 ;
+    public:
+        void setSub1(){ cin >> sub1 ; }
+        void setSub2(){ cin >> sub2 ; }
+        void setSub3(){ cin >> sub3 ; }
+}; 
+class Marks : public Accept
+{
+    private:
+        float marks ;
+    public:
+        float getMarks()
+        {
+            marks = sub1 + sub2 + sub3 ;
+            return marks ;
+        }
+};
+class percent : public Marks
+{
+    private:
+        float per;
+    public:
+        float calculate_percent()
+        {
+            per = (getMarks() / 300.0) * 100 ;
+            return per ;
+        }
+        void display()
+        {
+            system("cls");
+            cout << "Subject 1 marks = " << sub1 << endl ;
+            cout << "Subject 2 marks = " << sub2 << endl ;
+            cout << "Subject 3 marks = " << sub3 << endl ;
+            cout << endl << "Total marks = " << getMarks() << endl << endl ; 
+            cout << "Percentage = " << calculate_percent() << endl << endl ; 
+        }
+};
+int main () 
+{
+    percent p ;
+    cout << "Enter first subject marks : " ;
+    p.setSub1();
+    cout << "Enter second subject marks : " ;
+    p.setSub2();
+    cout << "Enter third subject marks : " ;
+    p.setSub3();
+    p.display();
+    return 0 ; 
+}
