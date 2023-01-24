@@ -25,8 +25,6 @@ class Person
         }
         void setPhone() { cin >> phone_no ; }
         char * getName() { return name ; }
-        char * getAddress() { return address ; }
-        int getPhone() { return phone_no ; }
 };
 class Employee : public Person
 {
@@ -68,8 +66,6 @@ class Manager : public Employee
             fflush(stdin);
             cin >> salary ; 
         }
-        char * getDes() { return designation ; }
-        char * getDept() { return dept_name ; }
         float getSalary() { return salary ; }
 };
 void Details_display(int n)
