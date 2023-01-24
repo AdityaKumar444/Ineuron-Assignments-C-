@@ -1,0 +1,150 @@
+#include<iostream>
+#include<cstring>
+using namespace std ;
+class Employee
+{
+    protected:
+        int emp_code ;
+        char name[50];
+};
+class Fulltime : public Employee
+{
+    private:
+        int daily_rate , no_of_days ;
+        float salary ;
+    public:
+        void setDetails()
+        {   
+            cout << "\nEnter Employee Number : " ;
+            cin >> emp_code ;
+            cout << "Enter Employee Name : " ;
+            fflush(stdin);
+            fgets(name,50,stdin);
+            int len = strlen(name);
+            if (len > 0 && name[len - 1] == '\n')
+            name[len - 1] = '\0';
+            fflush(stdin);
+            cout << "Enter daily rate : " ;
+            cin >> daily_rate ;
+            fflush(stdin);
+            cout << "Enter no of working days : " ;
+            cin >> no_of_days ; 
+        }
+        float getSalary()
+        {
+            salary = daily_rate * no_of_days ;
+            return salary ;
+        }
+        void display()
+        {
+            cout << endl << "------------------------------" << endl ;
+            cout << endl << "Employee Number    :   " << emp_code ;
+            cout << endl << "Employee Name      :   " << name ;
+            cout << endl << "Salary             :   " << getSalary() ;
+            cout << endl << "Status             :   " << "Fulltime" ;
+            cout << endl << "------------------------------" << endl ;
+        }
+        int getEmpId() { return emp_code ; }
+};
+class Parttime : public Employee
+{
+    private:
+        int hourly_rate , no_of_hours ;
+        float salary2 ;
+    public:
+        void setDetails()
+        {     
+            cout << "\nEnter Employee Number : " ;
+            cin >> emp_code ;
+            cout << "Enter Employee Name : " ;
+            fflush(stdin);
+            fgets(name,50,stdin);
+            int len = strlen(name);
+            if (len > 0 && name[len - 1] == '\n')
+            name[len - 1] = '\0';
+            fflush(stdin);
+            cout << "Enter hourly rate : " ;
+            cin >> hourly_rate ;
+            fflush(stdin);
+            cout << "Enter no of working hours : " ;
+            cin >> no_of_hours ; 
+        }
+        float getSalary2()
+        {
+            salary2 = hourly_rate * no_of_hours ;
+            return salary2 ;
+        }
+        void display()
+        {
+            cout << endl << "------------------------------" << endl ;
+            cout << endl << "Employee Number    :   " << emp_code ;
+            cout << endl << "Employee Name      :   " << name ;
+            cout << endl << "Salary             :   " << getSalary2() ;
+            cout << endl << "Status             :   " << "Parttime" ;
+            cout << endl << "------------------------------" << endl ;
+        }
+        int getEmpId() { return emp_code ; }
+};
+int main () 
+{
+    int n , count1=0 , count2=0 , x ;
+    Fulltime f[100];
+    Parttime p[100];
+    do
+    {
+        cout << endl << "1. Enter record" ;
+        cout << endl << "2. Display record" ;
+        cout << endl << "3. Search record" ;
+        cout << endl << "4. Quit" << endl ;
+        cout << endl << "Enter your choice : ";
+        cin >> n ;
+        switch (n)
+        {
+            case 1:
+                int y ;
+                cout << endl << "1. Full-time employee" ;
+                cout << endl << "2. Part-time employee" ;
+                cout << endl << "\nEnter choice : " ;
+                cin >> y ;
+                switch (y)
+                {   
+                    case 1 :
+                        f[count1].setDetails();
+                        count1++;
+                    break;
+                    case 2 :
+                        p[count2].setDetails();
+                        count2++;
+                    break;
+                }
+            break;
+            case 2:
+                for (int k = 0 ; k < count1 ; k++)
+                f[k].display();
+                for (int m = 0 ; m < count2 ; m++)
+                p[m].display();
+            break;
+            case 3:
+                cout << endl << "Enter employee no. : " ;
+                cin >> x ;
+                for (int i = 0 ; i < count1 ; i++)
+                {
+                    if(x==f[i].getEmpId())
+                    {
+                        cout << "\nRecord found !!!" ;
+                        f[i].display();
+                    }
+                }
+                for (int i = 0 ; i < count2 ; i++)
+                {
+                    if(x==p[i].getEmpId())
+                    {
+                        cout << "\nRecord found !!!" ;
+                        p[i].display();
+                    }
+                }
+            break;
+        }
+    } while(n!=4);
+    return 0 ; 
+}
