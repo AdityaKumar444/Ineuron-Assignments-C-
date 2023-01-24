@@ -12,7 +12,7 @@ class Item
 class Discount : public Item
 {
     private:
-        float discount_per , disc_price , CP ;
+        float discount_per , disc_price ;
     public:
         void accept()
         {
