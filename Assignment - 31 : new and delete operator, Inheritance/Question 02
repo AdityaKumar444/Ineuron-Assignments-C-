@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std ; 
+class Num
+{
+    protected:
+        float num1 , num2 ;
+    public:
+        void setNum1() { cin >> num1 ; }
+        void setNum2() { cin >> num2 ; }
+};
+class addition : public Num
+{
+    private:
+        float sum ;
+    public:
+        float add()
+        {
+            sum = num1 + num2 ;
+            return sum ;
+        }
+        void display()
+        {
+            cout << num1 << " + " << num2 << " = " << add() << endl ;
+        }
+};
+int main () 
+{
+    addition a ;
+    cout << "Enter first number : " ;
+    a.setNum1();
+    cout << "Enter second number : " ;
+    a.setNum2();
+    cout << endl << "Sum is : \n" ;
+    a.display();
+    return 0 ; 
+}
