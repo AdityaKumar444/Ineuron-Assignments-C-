@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std ;
+class B ;
+class A
+{
+    private:
+        int num1 = 10 ;
+    public:
+        friend void swap(A* , B*);
+        void display()
+        {
+            cout << "First Number = " << num1 << endl ;
+        }
+}; 
+class B
+{
+    private:
+        int num2 = 20 ;
+    public:
+        friend void swap(A* , B*);
+        void display()
+        {
+            cout << "Second Number = " << num2 << endl ;
+        }
+};
+void swap(A *x , B *y)
+{
+    int temp ;
+    temp = x->num1 ;
+    x->num1 = y->num2 ;
+    y->num2 = temp ;
+}
+int main () 
+{
+    A n1 ;
+    B n2 ;
+    cout << "\nBefore swapping :\n" ;
+    n1.display();
+    n2.display();
+    swap(&n1 , &n2);
+    cout << "\nAfter swapping :\n" ;
+    n1.display();
+    n2.display();
+    return 0 ; 
+}
