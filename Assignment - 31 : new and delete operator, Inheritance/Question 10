@@ -7,11 +7,36 @@ class worker
         int code ;
         char name[50];
         float salary ;
+    public:
+        void setDetails1()
+        {
+            cout << endl << "-------------------------------------- " << endl ;  
+            fflush(stdin);
+            cout << "\nEnter Code    :   " ;
+            cin >> code ;
+            cout << "\nEnter Name    :   " ;
+            fflush(stdin);
+            fgets(name,50,stdin);
+            int len = strlen(name);
+            if (len > 0 && name[len - 1] == '\n')
+            name[len - 1] = '\0';
+            fflush(stdin);
+            cout << endl << "Enter Salary  :   " ;
+            cin >> salary ;
+        }
 };
 class officer
 {
     protected:
         float DA ,HRA ;
+    public:
+        void setDetails2()
+        {   
+            cout << endl << "Enter DA      :   " ;
+            cin >> DA ;
+            cout << endl << "Enter HRA     :   " ;
+            cin >> HRA ;     
+        }
 };
 class manager : public worker , public officer
 {
@@ -27,26 +52,6 @@ class manager : public worker , public officer
         {
             gross_salary = salary + DA + HRA + getTA() ;
             return gross_salary ;
-        }
-        void setDetails()
-        {   
-            cout << endl << "-------------------------------------- " << endl ;  
-            fflush(stdin);
-            cout << "\nEnter Code    :   " ;
-            cin >> code ;
-            cout << "\nEnter Name    :   " ;
-            fflush(stdin);
-            fgets(name,50,stdin);
-            int len = strlen(name);
-            if (len > 0 && name[len - 1] == '\n')
-            name[len - 1] = '\0';
-            fflush(stdin);
-            cout << endl << "Enter Salary  :   " ;
-            cin >> salary ;
-            cout << endl << "Enter DA      :    " ;
-            cin >> DA ;
-            cout << endl << "Enter HRA     :    " ;
-            cin >> HRA ;     
         }
         void display()
         {
@@ -71,7 +76,10 @@ int main ()
     cout << endl << "Enter worker information for " << n ;
     manager b[n] ;
     for (int i = 0 ; i < n ; i++)
-    b[i].setDetails();
+    {
+        b[i].setDetails1();
+        b[i].setDetails2();
+    }
     for (int i = 0 ; i < n ; i++)
     b[i].display();
     return 0 ; 
