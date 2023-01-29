@@ -1,25 +1,38 @@
 #include<iostream>
+#include<cstring>
 using namespace std ;
 class Animals
 {
+    private:
+        char animalSound[20] ; 
     public:
-        void sound()
+        void setSound(char *str)
         {
-            cout << "these are the sound of different animals" << endl ;
+            strcpy(animalSound,str) ;
         }
+        char * getSound(){ return animalSound ;}
 }; 
 class Dogs : public Animals
 {
+    private:
+        char dogSound[20] ; 
     public:
-        void sound()
+        void setSound(char str[20])
         {
-            cout << "this is the sound of dog" << endl ;
+            strcpy(dogSound,str);
         }
+        char * getSound(){ return dogSound ;}
 };
 int main () 
 {
-    Dogs d ;
-    d.Animals::sound();
-    d.sound();   
+    Animals cow ;
+    Dogs dog ;
+    char sound[20] ;
+    strcpy(sound,"moo");
+    cow.setSound(sound);
+    cout << "cow sound is : " << cow.getSound() << endl ;
+    strcpy(sound,"woof");
+    dog.setSound(sound);
+    cout << "Dog sound is : " << dog.getSound() << endl ;
     return 0 ; 
 }
