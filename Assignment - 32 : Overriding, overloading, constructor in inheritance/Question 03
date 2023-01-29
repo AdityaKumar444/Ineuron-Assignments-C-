@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std ;
+class Animals
+{
+    public:
+        void sound()
+        {
+            cout << "these are the sound of different animals" << endl ;
+        }
+}; 
+class Dogs : public Animals
+{
+    public:
+        void sound()
+        {
+            cout << "this is the sound of dog" << endl ;
+        }
+};
+int main () 
+{
+    Dogs d ;
+    d.Animals::sound();
+    d.sound();   
+    return 0 ; 
+}
