@@ -1,71 +1,46 @@
 #include<iostream>
-#include<cstring>
-using namespace std ;
-class Student
-{
-    protected:
-        int id ;
-        char name[50];
-};
-class StudentExam : public Student
-{
-    protected:
-        int m1 , m2 , m3 ;
-    public:
-        void setDetails()
-        {   
-            cout << endl << "--------------------------------------" << endl ;  
-            fflush(stdin);
-            cout << "\nEnter Roll No.             :   " ;
-            cin >> id ;
-            cout << "\nEnter Student Name         :   " ;
-            fflush(stdin);
-            fgets(name,50,stdin);
-            int len = strlen(name);
-            if (len > 0 && name[len - 1] == '\n')
-            name[len - 1] = '\0';
-            fflush(stdin);
-            cout << endl << "Enter marks for Subject 1  : " ;
-            cin >> m1 ;
-            cout << endl << "Enter marks for Subject 2  : " ;
-            cin >> m2 ;
-            cout << endl << "Enter marks for Subject 3  : " ;
-            cin >> m3 ;
-        }
-};
-class StudentResult : public StudentExam
+using namespace std ; 
+class A
 {
     private:
-        float percentage ;
+        double a , b , res ;
     public:
-        float getPercent()
+        A(){}
+        A (double x , double y)
         {
-            percentage = ((m1+m2+m3)/300.0)*100 ;
-            return percentage ;
+            a = x , b = y ;  
+            res = a + b ;
+            cout << "Addition : " << res << endl ;
         }
-        void display()
+};
+class B : public A
+{
+    private:
+        double x , y , ans ;
+    public:
+        B(){}
+        B(double a , double b):A(a,b)
         {
-            cout << endl << "--------------------------------------" << endl ;  
-            cout << "********** Student Marklist **********" ;
-            cout << endl << "--------------------------------------" << endl ; 
-            cout << endl << "Roll No.                 :   " << id ;
-            cout << endl << "Student Name             :   " << name << endl ;
-            cout << endl << "Marks of Subject 1       :   " << m1 ;
-            cout << endl << "Marks of Subject 2       :   " << m2 ;
-            cout << endl << "Marks of Subject 3       :   " << m3 ;
-            cout << endl << "\nTotal Percentage         :   " << getPercent() ;
-            cout << endl << "--------------------------------------" << endl ;
+            x = a , y = b ;
+            ans = a*b ;
+            cout << "Multiplication : " << ans << endl ;
+        }
+};
+class C : public B
+{ 
+    private:
+        double x , y , ans ;
+    public:
+        C(){}
+        C(double a , double b):B(a,b)
+        {
+            x = a , y = b ;
+            ans = a-b ;
+            cout << "Subtraction : " << ans << endl ;
         }
 };
 int main () 
 {
-    int n ;
-    cout << "Enter No. of Students you want : " ;
-    cin >> n ;
-    StudentResult b[n];
-    for (int i = 0 ; i < n ; i++)
-    b[i].setDetails();
-    for (int i = 0 ; i < n ; i++)
-    b[i].display();
+    C a1(5.3,5.8);
     return 0 ; 
 }
