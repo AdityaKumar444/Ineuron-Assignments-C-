@@ -1,0 +1,72 @@
+#include<iostream>
+using namespace std ;
+class Area
+{
+    private:
+        double area_rect = 0 , area_tri = 0 , area_circ = 0 ;
+    public:
+        Area(double len , double wid)
+        {
+            area_rect = len * wid ;
+        }
+        Area(int base , int height)
+        {
+            area_tri = ( base * height ) / 2.0 ;
+        }
+        Area(double radius)
+        {
+            area_circ = 3.14 * radius * radius ;
+        }
+        double getRecArea() { return area_rect ; }
+        double getTriArea() { return area_tri ; }
+        double getCirArea() { return area_circ ; }
+}; 
+int main () 
+{
+    int choice ;
+    while (true)
+    {
+        cout << "\n\n1. To calculate area of rectangle" << endl ;
+        cout << "2. To calculate area of triangle" << endl ;
+        cout << "3. To calculate area of circle" << endl ;
+        cout << "4. Exit" << endl ;
+        cout << "\nEnter your choice : " ;
+        cin >> choice ;
+        switch (choice)
+        {
+        case 1:
+        {  
+            double len , wid ;
+            cout << endl << "Enter length and breadth of rectangle in meters : " ;
+            cin >> len >> wid ;
+            Area a1(len,wid);
+            cout << endl << "Area of rectangle is " << a1.getRecArea() << " sq metrer"<< endl ;
+            break;
+        }
+        case 2:
+        {
+            int base , height ;
+            cout << endl << "Enter base and height in meters : " ;
+            cin >> base >> height ;
+            Area a2(base,height);
+            cout << endl << "Area of triangle is " << a2.getTriArea() << " sq metrer"<< endl ;
+            break;
+        }
+        case 3:
+        {
+            double radius ;
+            cout << endl << "Enter radius of circle in meters : " ;
+            cin >> radius ;
+            Area a3(radius);
+            cout << endl << "Area of circle is " << a3.getCirArea() << " sq metrer"<< endl ;
+            break;
+        }
+        case 4:
+            exit(0);
+        default:
+            cout << "\nInvalid Choice" << endl ;
+            break;
+        }
+    }    
+    return 0 ; 
+}
