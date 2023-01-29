@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std ; 
+class FLOAT
+{
+    private:
+        float a ;
+    public:
+        void setData(float x) { a = x ; }
+        float getData() { return a ; }
+    FLOAT operator+(FLOAT b)
+    {
+        FLOAT temp ;
+        temp.a = a + b.a ;
+        return temp ;
+    }
+    FLOAT operator-(FLOAT b)
+    {
+        FLOAT temp ;
+        temp.a = a - b.a ;
+        return temp ;
+    }
+    FLOAT operator*(FLOAT b)
+    {
+        FLOAT temp ;
+        temp.a = a * b.a ;
+        return temp ;
+    }
+    FLOAT operator/(FLOAT b)
+    {
+        FLOAT temp ;
+        temp.a = a / b.a ;
+        return temp ;
+    }
+};
+int main () 
+{
+    FLOAT f1 , f2 , f3 ;
+    f1.setData(25);
+    f2.setData(10);
+    f3 = f1 + f2 ;
+    cout << f1.getData() << " + " << f2.getData() << " = " << f3.getData() << endl ;
+    f3 = f1 - f2 ;
+    cout << f1.getData() << " - " << f2.getData() << " = " << f3.getData() << endl ;
+    f3 = f1 * f2 ;
+    cout << f1.getData() << " * " << f2.getData() << " = " << f3.getData() << endl ;
+    f3 = f1 / f2 ;
+    cout << f1.getData() << " / " << f2.getData() << " = " << f3.getData() << endl ;
+    return 0 ; 
+}
