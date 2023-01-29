@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std ;
+class Addition
+{
+    private:
+        double num1 , num2 , num3 ; 
+    public:
+        int add(int a , int b)
+        {
+            int sum ;
+            num1 = a , num2 = b ;
+            sum = num1 + num2 ;
+            return sum ;
+        }
+        double add(double a , double b , double c)
+        {
+            double sum ;
+            num1 = a , num2 = b , num3 = c ;
+            sum = num1 + num2 + num3 ;
+            return sum ;
+        }
+}; 
+int main () 
+{
+    Addition a1 ;
+    cout << a1.add(5.2,7.3) <<endl ;
+    cout << a1.add(5.36,7.29,3) <<endl ;
+    return 0 ; 
+}
