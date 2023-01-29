@@ -1,0 +1,33 @@
+#include<iostream>
+using namespace std ; 
+class A
+{
+    private:
+        double a , b , res ;
+    public:
+        A(){}
+        A (double x , double y)
+        {
+            a = x , b = y ;  
+            res = a + b ;
+            cout << "Addition : " << res << endl ;
+        }
+};
+class B : public A
+{
+    private:
+        double x , y , ans ;
+    public:
+        B(){}
+        B(double a , double b):A(a,b)
+        {
+            x = a , y = b ;
+            ans = a*b ;
+            cout << "Multiplication : " << ans << endl ;
+        }
+};
+int main () 
+{
+    B a1(5.3,5.8);
+    return 0 ; 
+}
