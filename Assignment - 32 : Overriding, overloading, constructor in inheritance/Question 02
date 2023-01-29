@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std ;
+class rectangle
+{
+    public:
+        int area(int len , int wid)
+        {
+            int area = len * wid ;
+            return area ;
+        }
+        float area(float len , float wid)
+        {
+            float area = len * wid ;
+            return area ;
+        }
+        double area(double len , double wid)
+        {
+            double area = len * wid ;
+            return area ;
+        }
+}; 
+int main () 
+{
+    rectangle r ;
+    cout << "Area of rectangle = " << r.area(7,3) << endl ;
+    cout << "Area of rectangle = " << r.area(7.5,8.2) << endl ;
+    cout << "Area of rectangle = " << r.area(3.14,8.276) << endl ;
+    return 0 ; 
+}
