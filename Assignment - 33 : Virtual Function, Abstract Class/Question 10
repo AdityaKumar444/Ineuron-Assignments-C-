@@ -1,0 +1,84 @@
+#include<iostream>
+using namespace std ;
+class shape
+{
+    private:
+        double x , y ;
+    public:
+        void setData(double a , double b = 0)
+        {
+            x = a ;
+            y = b ;
+        }
+        double getX() { return x ; }
+        double getY() { return y ; }
+        virtual void display() = 0 ;
+}; 
+class square : public shape
+{
+    private:
+        double area ;
+    public:
+        void display()
+        {
+            cout << getX() * getX() << endl ;
+        }
+};
+class parallelogram : public shape
+{
+    private:
+        double area ;
+    public:
+        double calc_rect()
+        {
+            area = getX() * getY() ;
+            return area ;
+        }
+        void display()
+        {
+            cout << calc_rect() << endl ;
+        }
+};
+int main () 
+{
+    double side , len , wid ;
+    int choice ;
+    cout << "\nEnter length of square : ";
+    cin >> side ;   
+    square c ;
+    c.setData(side);
+    cout << "Area of square is " ;
+    c.display();
+    cout << "\nchoose from below to find area of parallelogram : " << endl ;
+    cout << "1. Rectangle" << endl ;
+    cout << "2. Rhombus" << endl ;
+    cout << "Enter choice : " ;
+    cin >> choice ;
+    switch (choice)
+    {
+    case 1:
+    {
+        parallelogram p1;
+        cout << "\nEnter length and width of rectangle : " ;
+        cin >> len >> wid ;
+        p1.setData(len,wid);
+        cout << "Area of rectangle is " ;
+        p1.display();
+        break;
+    }
+    case 2:
+    {
+        square p2;
+        cout << "\nEnter length of rhombus : " ;
+        cin >> side ;
+        p2.setData(side);
+        cout << "Area of rhombus is " ;
+        p2.display();
+        break;
+    }
+    default:
+    cout << "\nInvalid Choice\n" << endl ;
+        break;
+    }
+    return 0 ; 
+}
