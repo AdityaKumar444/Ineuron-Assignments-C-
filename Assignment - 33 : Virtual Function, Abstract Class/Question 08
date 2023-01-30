@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std ;
+class proof
+{
+    private:
+        int p , b ;
+    public:
+        void setData(int x , int y)
+        {
+            p = x ;
+            b = y ;
+        }
+        int getP(){ return p ;}
+        int getB(){ return b ;}
+        virtual void display() = 0 ;
+}; 
+class compute : public proof
+{
+    private:
+        int h , rt ;
+    public:
+        compute(int x) : h(x) {}
+        int check_rt_tri()
+        {
+            rt = getP()*getP() + getB()*getB() ;
+            return rt ;
+        }
+        void display()
+        {
+            if(h*h == check_rt_tri())
+            cout << "\nIt's a right angled triangle" << endl ;
+            else
+            cout << "\nIt's not a right angled triangle" << endl ;
+        }
+};
+int main () 
+{
+    int a , b , c ;
+    cout << "Enter perpendicular and base of triangle :\n" ;
+    cin >> a >> b ;
+    cout << "Enter hypotenuse of triangle :\n" ;
+    cin >> c ;
+    compute c1(c);
+    c1.setData(a,b);
+    c1.display();   
+    return 0 ; 
+}
