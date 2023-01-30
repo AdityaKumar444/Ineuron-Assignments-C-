@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std ;
+class volume
+{
+    private:
+        double x , y ;
+    public:
+        void setData(double a , double b = 3.14)
+        {
+            x = a ;
+            y = b ;
+        }
+        double getX() { return x ; }
+        double getY() { return y ; }
+        virtual void display() = 0 ;
+}; 
+class cube : public volume
+{
+    private:
+        double vol ;
+    public:
+        void display()
+        {
+            cout << "Volume of cube whose side is " << getX() << " is " << pow(getX(),3) << endl ;
+        }
+};
+class sphere : public volume
+{
+    private:
+        double vol ;
+    public:
+        void display()
+        {
+            cout << "Volume of sphere whose radius is " ;
+            cout << getX() << " is " << (4 * getY() * pow(getX(),3)) / 3.0 << endl ;
+        }
+};
+int main () 
+{
+    double side , radius ;
+    cout << "\nEnter side of cube : ";
+    cin >> side ;   
+    cube c ;
+    c.setData(side);
+    c.display();
+    cout << "\nEnter radius of circle : " ;
+    cin >> radius ;
+    sphere s ;
+    s.setData(radius);
+    s.display();
+    return 0 ; 
+}
