@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std ;
+class Photon
+{
+    private:
+        double wavelength ;
+    public:
+        void setData(double x) { wavelength = x ;}
+        double getWave(){ return wavelength ;}
+        virtual void display() = 0 ;
+}; 
+class photonEnergy : public Photon
+{
+    private:
+        double E ;
+    public:
+        double calculate_photonEnergy()
+        {
+            E = (3 * 6.626) / getWave() ;
+            return E ;
+        }
+        void display()
+        {
+            cout << "photon energy = " << calculate_photonEnergy() << " * 10^-17 J" << endl ;
+        }
+};
+int main () 
+{
+    double wave ;
+    cout << "Enter wavelength in nm : " ;
+    cin >> wave ;
+    photonEnergy p ;
+    p.setData(wave);
+    p.display();
+    return 0 ; 
+}
