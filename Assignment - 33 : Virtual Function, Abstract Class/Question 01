@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std ;
+class shape
+{
+    private:
+        double a , b ;
+    public:
+        void set_data(double x , double y)
+        {
+            a = x ;
+            b = y ;
+        }
+        double getA() { return a ; }
+        double getB() { return b ; }
+        virtual void display_area() = 0 ;
+};
+class Rectangle : public shape
+{
+    private:
+        double area ;
+    public:
+        double calc_Area()
+        {
+            area = getA() * getB() ;
+            return area ;
+        }
+        void display_area()
+        {
+            cout << "Area of rectangle = " << calc_Area() << endl ;
+        }
+};
+class Triangle : public shape
+{
+    private:
+        double area ;
+    public:
+        double calc_Area()
+        {
+            area = ( getA() * getB() ) / 2.0 ;
+            return area ;
+        }
+        void display_area()
+        {
+            cout << "Area of triangle = " << calc_Area() << endl ;
+        }
+}; 
+int main () 
+{
+    double len , wid , base , height ;
+    cout << "\nEnter length and width of rectnagle : " ;
+    cin >> len >> wid ;
+    Rectangle r ;
+    r.set_data(len,wid);
+    r.display_area();
+    cout << "\nEnter base and height of triangle : " ;
+    cin >> base >> height ;
+    Triangle t ;
+    t.set_data(base,height);
+    t.display_area();
+    return 0 ; 
+}
