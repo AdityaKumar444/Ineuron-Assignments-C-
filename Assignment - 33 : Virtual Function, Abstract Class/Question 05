@@ -21,13 +21,13 @@ class photonEnergy : public Photon
         }
         void display()
         {
-            cout << "photon energy = " << calculate_photonEnergy() << " * 10^-17 J" << endl ;
+            cout << "\nphoton energy = " << calculate_photonEnergy() << " * 10^-17 J" << endl ;
         }
 };
 int main () 
 {
     double wave ;
-    cout << "Enter wavelength in nm : " ;
+    cout << "\nEnter wavelength in nm : " ;
     cin >> wave ;
     photonEnergy p ;
     p.setData(wave);
