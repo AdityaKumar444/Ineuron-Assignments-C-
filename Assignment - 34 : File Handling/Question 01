@@ -1,0 +1,25 @@
+#include<iostream>
+#include<fstream>
+using namespace std ; 
+int main () 
+{
+    ofstream fout ;
+    try
+    {
+        fout.open("D:/New folder/file.txt") ;
+        if (!fout)
+        throw 1 ;
+        else
+        throw 1.2 ;
+    }
+    catch(int)
+    {
+        cout << "File not created" << endl ;
+    }
+    catch(double)
+    {
+        cout << "File created successfully" << endl ;
+    }
+    fout.close();
+    return 0 ; 
+}
