@@ -1,0 +1,22 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std ; 
+int main () 
+{
+    ofstream writes ;
+    string str ;
+    writes.open("D:/New folder/file.txt", ios::app | ios::in | ios::out) ;
+    cout << "Enter data to append in file : " << endl ;
+    while (true)
+    {
+        fflush(stdin);
+        getline(cin,str);
+        if(str=="exit()")
+        break;
+        writes << str ;
+        writes << endl ;
+    }
+    writes.close();
+    return 0 ; 
+}
