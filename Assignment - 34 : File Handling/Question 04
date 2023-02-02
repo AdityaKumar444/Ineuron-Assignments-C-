@@ -1,0 +1,30 @@
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std ; 
+int main () 
+{
+    string str ;
+    ifstream fin ;
+    ofstream fout ;
+    fin.open("D:/New folder/file.txt") ;
+    fout.open("D:/New folder/file1.txt");
+    while (!fin.eof())
+    {
+        getline(fin,str);
+        int len = str.length();
+        for(int i=0 ; i<len ; i++)
+        {
+            if(str[i]>='A' && str[i]<='Z')
+            str[i] = str[i] + 32 ;
+            else if(str[i]>='a' && str[i]<='z')
+            str[i] = str[i] - 32 ;
+        }
+        fout << str ;
+        fout << endl ;
+    }
+    cout << "file copied successfully !!!" << endl ;
+    fin.close();
+    fout.close();
+    return 0 ;
+}
