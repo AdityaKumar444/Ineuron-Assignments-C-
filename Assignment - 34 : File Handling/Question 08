@@ -1,0 +1,86 @@
+#include<bits/stdc++.h>
+using namespace std;
+int ID;
+class employee
+{
+private:
+    int id;
+    string name;
+public:
+    void addEmployee()
+    {
+        cout << "\nEnter your name : " ;
+        fflush(stdin);
+        getline(cin, name);
+        ID++;
+        ofstream fout;
+        fout.open("D:/New folder/employee.txt", ios::app);
+        fout << ID << endl ;
+        fout << name << endl ;
+        fout.close();
+        fout.open("D:/New folder/id.txt", ios::app);
+        fout << "\n" << ID;
+        fout.close();
+        cout << "\nRecord added successfully !!!" << endl;
+    }
+    void display()
+    {
+        cout << "\nID = " << id << endl;
+        cout << "Name = " << name << endl;
+        cout << "-----------------------------" << endl << endl;
+    }
+    void searchEmployee(int id)
+    {
+        ifstream fin;
+        fin.open("D:/New folder/employee.txt");
+        employee s;
+        while (!fin.eof())
+        {
+            fin >> s.id;
+            fin.ignore();
+            getline(fin, s.name);
+            if (s.id == id)
+            {
+                s.display();
+                break;
+            }
+        }
+        fin.close();
+    }
+};
+int main()
+{
+    int choice;
+    ifstream fin;
+    fin.open("D:/New folder/employee.txt");
+    while (true)
+    {
+        system("cls");
+        cout << "1. Add Employee" << endl;
+        cout << "2. Search an employee" << endl;
+        cout << "3. Exit" << endl;
+        cout << "\nEnter Your choice : " ;
+        cin >> choice;
+        employee s;
+        int id;
+        switch (choice)
+        {
+        case 1:
+            s.addEmployee();
+            getchar();
+            break;
+        case 2:
+            cout << "\nEnter employee id : " ;
+            cin >> id;
+            s.searchEmployee(id);
+            fflush(stdin);
+            getchar();
+            break;
+        case 3: exit(0);
+        default:
+            exit(0);
+        }
+    }
+    fin.close();
+    return 0;
+}
