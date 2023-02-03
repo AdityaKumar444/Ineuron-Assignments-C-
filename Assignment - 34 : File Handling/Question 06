@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std ; 
+int main () 
+{
+    int l1 = 0 , len = 0 , line = 0 , spaces = 0 , words = 0 ;
+    ifstream fin ;
+    string str ;
+    fin.open("D:/New folder/count.txt");
+    while (!fin.eof())
+    {
+        getline(fin,str);
+        l1 = str.length();
+        len = len + l1 ;
+        line++;
+        for (int i = 0; i < l1; i++)
+        {
+            if(str[i]==' ')
+            spaces++;
+        }
+    }
+    words = (spaces/line) + 1 ;
+    cout << "characters = " << len << endl ;
+    cout << "words = " << words*line << endl ;
+    cout << "lines = " << line << endl ;
+    fin.close();
+    return 0 ; 
+}
