@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std ; 
+int main () 
+{
+    string str ;
+    ofstream fout ;
+    fout.open("D:/New folder/merge.txt" , ios::app | ios::in | ios::out);
+    ifstream read1 , read2 ;
+    read1.open("D:/New folder/file3.txt");
+    read2.open("D:/New folder/file4.txt");
+    while (!read1.eof())
+    {
+        getline(read1,str);
+        fout << str ;
+        fout << endl ;
+    }
+    fout << endl ;
+    while (!read2.eof())
+    {
+        getline(read2,str);
+        fout << str ;
+        fout << endl ;
+    }
+    cout << "file merged successfully !!!" << endl ;
+    read1.close();
+    read2.close();
+    fout.close();
+    return 0 ; 
+}
