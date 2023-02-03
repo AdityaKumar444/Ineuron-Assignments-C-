@@ -2,12 +2,21 @@
 using namespace std ; 
 int main () 
 {
-    string str ;
+    string str , file1 , file2 , file3 ;
+    cout << "Use / for moving into directory\n" << endl ;
+    fflush(stdin);
+    cout << "Enter first file with path and extension '.txt' :" << endl ;
+    getline(cin,file1);
+    fflush(stdin);
+    cout << "\nEnter second file with path and extension '.txt' :" << endl ;
+    getline(cin,file2);
+    cout << "\nEnter name of the third file with extension '.txt':" << endl ;
+    getline(cin,file3);
     ofstream fout ;
-    fout.open("D:/New folder/merge.txt" , ios::app | ios::in | ios::out);
+    fout.open(file3 , ios::app | ios::in | ios::out);
     ifstream read1 , read2 ;
-    read1.open("D:/New folder/file3.txt");
-    read2.open("D:/New folder/file4.txt");
+    read1.open(file1);
+    read2.open(file2);
     while (!read1.eof())
     {
         getline(read1,str);
@@ -21,7 +30,7 @@ int main ()
         fout << str ;
         fout << endl ;
     }
-    cout << "file merged successfully !!!" << endl ;
+    cout << "\nfile merged successfully !!!" << endl ;
     read1.close();
     read2.close();
     fout.close();
