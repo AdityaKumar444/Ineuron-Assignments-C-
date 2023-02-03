@@ -4,17 +4,23 @@
 using namespace std ; 
 int main () 
 {
-    int l1 = 0 , len = 0 ;
+    int l1 = 0 , len = 0 , spaces = 0 ;
     ifstream fin ;
     string str ;
-    fin.open("D:/New folder/file.txt");
+    fin.open("D:/New folder/count.txt");
     while (!fin.eof())
     {
         getline(fin,str);
         l1 = str.length();
         len = len + l1 ;
+        for (int i = 0; i < l1; i++)
+        {
+            if(str[i]==' ')
+            spaces++;
+        }
     }
-    cout << len ;
+    len = len - spaces ;
+    cout << "total characters = " << len << endl ;
     fin.close();
     return 0 ; 
 }
